@@ -10,5 +10,10 @@
         <result name="success">/HelloLogin.jsp</result>
         <result name="error">/ErrorLogin.jsp</result>
     </action>
+
+        <action name="add" class="control.AddStu">
+            <result name="success">/AddStuSuc.jsp</result>
+            <result name="error">/AddStuErr.jsp</result>
+        </action>
     </package>
 </struts>

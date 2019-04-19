@@ -26,4 +26,41 @@ public class StuDAOImp implements StuDAO{
         }
         return flag;
     }
+
+    String urls="jdbc:hsqldb:hsql://localhost/stumessage";
+    String drivers = "org.hsqldb.jdbcDriver";
+    String users="sa";
+    String passs="";
+
+    public int add(String userid,String username,String userroom,String userage,String usergrade) throws Exception{
+
+        int flags = 0;
+        Class.forName(drivers);
+        String sql = "insert into student VALUES(?,?,?,?,?)";
+        //  String sql = "insert into student VALUES('A004','张飞','S004',18,92)";
+        try{
+            Connection con = DriverManager.getConnection(urls, users, passs);
+            PreparedStatement pres=con.prepareStatement(sql);
+
+            pres.setString(1,userid);
+            pres.setString(2,username);
+            pres.setString(3,userroom);
+            pres.setString(4,userage);
+            pres.setString(5,usergrade);
+            pres.execute();
+
+            flags=pres.executeUpdate(sql);
+            System.out.println("插入"+flags+"条数据");
+
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Exception");
+        }
+        return flags;
+    }
+
+
+
 }
