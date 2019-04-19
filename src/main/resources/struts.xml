@@ -35,5 +35,6 @@
             <result name="success">/StuSuc.jsp</result>
             <result name="error">/StuErr.jsp</result>
         </action>
+
     </package>
 </struts>

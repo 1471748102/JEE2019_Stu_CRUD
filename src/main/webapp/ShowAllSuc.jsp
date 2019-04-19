@@ -30,10 +30,10 @@
             <td><s:property value="#ux.getUserage()"/></td>
             <td><s:property value="#ux.getUsergrade()"/></td>
             <td>
-                <a href="del.action?user.userid=<s:property value="#ux.getUserid()"/>">删除</a>
+                <a href="del.action?userid=<s:property value="#ux.getUserid()"/>">删除</a>
             </td>
             <td>
-                <a href="update.action?user.userid=<s:property value="#ux.getUserid()"/>">修改</a>
+                <a href="update.action?userid=<s:property value="#ux.getUserid()"/>">修改</a>
             </td>
 
         </tr>

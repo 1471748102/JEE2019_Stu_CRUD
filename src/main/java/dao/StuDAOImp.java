@@ -3,6 +3,7 @@ package dao;
 
 
 import bean.User;
+import com.sun.net.httpserver.Authenticator;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -133,7 +134,7 @@ public class StuDAOImp implements StuDAO {
         String sql = "delete from student where userid = ?";
         Class.forName(driver);
         try (Connection con = DriverManager.getConnection(urlv, userv, passv);
-             PreparedStatement pstmt = con.prepareStatement(sql);) {
+              PreparedStatement pstmt = con.prepareStatement(sql);) {
             pstmt.setString(1, xuehao);
             int row = pstmt.executeUpdate();
             if (row > 0) {
@@ -142,21 +143,56 @@ public class StuDAOImp implements StuDAO {
         }
         return isSuc;
     }
-/*
-
-    String urls6 = "jdbc:hsqldb:hsql://localhost/stumessage";
-    String drivers6 = "org.hsqldb.jdbcDriver";
-    String users6 = "sa";
-    String passs6 = "";
 
 
-    public boolean update(String xuehao) throws Exception {
+    String urlx = "jdbc:hsqldb:hsql://localhost/stumessage";
+    String driverx = "org.hsqldb.jdbcDriver";
+    String userx = "sa";
+    String passx = "";
 
+    public boolean update(String kid,String kname,String kroom,String kage,String kgrade) throws Exception {
 
+        boolean is = false;
+        String sql="update stu set kname=?, kroom=?,kage=?,kgrade=? where kid = ?";
+        Class.forName(driverx);
+         try (Connection con = DriverManager.getConnection(urlx, userx, passx);
+              PreparedStatement pskt = con.prepareStatement(sql);) {
+             pskt.setString(1,kname);
+             pskt.setString(2,kroom);
+             pskt.setString(3,kage);
+             pskt.setString(4,kgrade);
 
-        return true;
+             int row = pskt.executeUpdate();
+            if (row > 0){
+               is = true;
+           }
+      }
 
+        return is;
     }
-   */
-}
 
+    String urlen = "jdbc:hsqldb:hsql://localhost/stumessage";
+    String driveren = "org.hsqldb.jdbcDriver";
+    String useren = "sa";
+    String passen = "";
+
+    public boolean update(User u) throws Exception {
+        boolean isSuc = false;
+        String sql="update stu set username=?, userroom=?,userage=?,usergrade=? where userid = ?";
+        Class.forName(driver);
+        try (Connection con = DriverManager.getConnection(urlen, useren, passen);
+             PreparedStatement pstmt = con.prepareStatement(sql);) {
+            pstmt.setString(1,u.getUsername());
+            pstmt.setString(2,u.getUserroom());
+            pstmt.setString(3,u.getUserage());
+            pstmt.setString(4,u.getUsergrade());
+            pstmt.setString(5,u.getUsergrade());
+
+            int row = pstmt.executeUpdate();
+            if (row > 0){
+                isSuc = true;
+            }
+        }
+        return isSuc;
+    }
+}

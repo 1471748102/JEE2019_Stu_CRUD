@@ -10,5 +10,7 @@ public interface StuDAO {
     User mlz(User uk) throws Exception;
     List show( ) throws Exception;
     boolean delete(String xuehao) throws Exception;
-    //boolean update(User use) throws Exception;
+    boolean update(String kid,String kname,String kroom,String kage,String kgrade) throws Exception;
+    boolean update(User user) throws Exception;
+
 }
