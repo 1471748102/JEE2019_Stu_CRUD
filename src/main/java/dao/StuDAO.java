@@ -9,4 +9,6 @@ public interface StuDAO {
     int add(String userid,String username,String userroom,String userage,String usergrade) throws Exception;
     User mlz(User uk) throws Exception;
     List show( ) throws Exception;
+    boolean delete(String xuehao) throws Exception;
+    //boolean update(User use) throws Exception;
 }

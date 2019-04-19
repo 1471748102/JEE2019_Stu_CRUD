@@ -25,5 +25,15 @@
             <result name="success">/ShowAllSuc.jsp</result>
             <result name="error">/ShowAllErr.jsp</result>
         </action>
+
+        <action name="del" class="control.DeleteStu">
+            <result name="success">/StuSuc.jsp</result>
+            <result name="error">/StuErr.jsp</result>
+        </action>
+
+        <action name="update" class="control.UpdateStu">
+            <result name="success">/StuSuc.jsp</result>
+            <result name="error">/StuErr.jsp</result>
+        </action>
     </package>
 </struts>
