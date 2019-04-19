@@ -60,15 +60,15 @@ public class User implements Serializable {
     public void setUsergrade(String usergrade) {
         this.usergrade = usergrade;
     }
-/*
+
     public String toString() {
         return "user{" +
-                "userid=" + userid +
-                ", username='" + username + '\'' +
+                "username='" + username + '\'' +
+                ", userid=" + userid +
                 ", userroom='" + userroom + '\'' +
-                ", userage=" + userage +'\'' +
+                ", userage=" + userage +
                 ", usergrade=" + usergrade +
                 '}';
     }
-    */
+
 }

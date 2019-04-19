@@ -21,5 +21,9 @@
             <result name="error">/AddStuByUserErr.jsp</result>
         </action>
 
+        <action name="show" class="control.ShowAllStudent">
+            <result name="success">/ShowAllSuc.jsp</result>
+            <result name="error">/ShowAllErr.jsp</result>
+        </action>
     </package>
 </struts>

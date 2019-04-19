@@ -5,6 +5,8 @@ package dao;
 import bean.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class StuDAOImp implements StuDAO{
@@ -93,6 +95,40 @@ public class StuDAOImp implements StuDAO{
 
     }
 
+
+    String urlf="jdbc:hsqldb:hsql://localhost/stumessage";
+    String driverf = "org.hsqldb.jdbcDriver";
+    String userf="sa";
+    String passf="";
+
+    public List show( ) throws Exception{
+        List StudentList = new ArrayList();
+        Class.forName(drivert);
+        String sql = "select * from student";
+        try{
+            Connection con = DriverManager.getConnection(urlf, userf, passf);
+            PreparedStatement pref=con.prepareStatement(sql);
+            ResultSet rs=pref.executeQuery();
+            while(rs.next())
+            {
+                User uk = new User();
+                uk.setUserid(rs.getString("userid"));
+                uk.setUsername(rs.getString("username"));
+                uk.setUserroom(rs.getString("userroom"));
+                uk.setUserage(rs.getString("userage"));
+                uk.setUsergrade(rs.getString("usergrade"));
+                StudentList.add(uk);
+            }
+            return StudentList;
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Exception");
+        }
+        return StudentList;
+
+    }
 
 
 }
