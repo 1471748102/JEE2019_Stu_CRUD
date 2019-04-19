@@ -2,6 +2,8 @@ package dao;
 
 
 
+import bean.User;
+
 import java.sql.*;
 
 
@@ -59,6 +61,36 @@ public class StuDAOImp implements StuDAO{
             System.out.println("Exception");
         }
         return flags;
+    }
+
+    String urlt="jdbc:hsqldb:hsql://localhost/stumessage";
+    String drivert = "org.hsqldb.jdbcDriver";
+    String usert="sa";
+    String passt="";
+
+    public User mlz(User uk) throws Exception{
+
+        Class.forName(drivert);
+        String sql = "insert into student VALUES(?,?,?,?,?)";
+        try{
+            Connection con = DriverManager.getConnection(urlt, usert, passt);
+            PreparedStatement pret=con.prepareStatement(sql);
+
+            pret.setString(1,uk.getUserid());
+            pret.setString(2,uk.getUsername());
+            pret.setString(3,uk.getUserroom());
+            pret.setString(4,uk.getUserage());
+            pret.setString(5,uk.getUsergrade());
+            pret.execute();
+
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Exception");
+        }
+        return uk;
+
     }
 
 

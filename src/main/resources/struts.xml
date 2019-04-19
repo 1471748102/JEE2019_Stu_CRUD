@@ -15,5 +15,11 @@
             <result name="success">/AddStuSuc.jsp</result>
             <result name="error">/AddStuErr.jsp</result>
         </action>
+
+        <action name="User" class="control.AddStuByUser">
+            <result name="success">/AddStuByUserSuc.jsp</result>
+            <result name="error">/AddStuByUserErr.jsp</result>
+        </action>
+
     </package>
 </struts>
