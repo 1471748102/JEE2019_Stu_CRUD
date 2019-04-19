@@ -13,6 +13,10 @@
 </head>
 <body>
 信息插入成功！<br>
-
+学号：<s:property value="userid"/><br>
+姓名：<s:property value="username"/><br>
+班级：<s:property value="userroom"/><br>
+年龄：<s:property value="userage"/><br>
+JAVA成绩：<s:property value="usergrade"/><br>
 </body>
 </html>
